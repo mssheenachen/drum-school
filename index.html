@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>Sheena FEWDR Project</title>
+  </head>
+  <body>
+    <section class="sticks">
+      <div class="left-sticks">
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="right-sticks" id="menu-trigger">
+        <div></div>
+        <div></div>
+      </div>
+    </section>
+
+    <aside class="side-menu-position side-menu-design" id="side-menu">
+      <header class="side-menu-header">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/x.svg"
+          alt="Close this menu"
+          id="menu-close"
+        />
+      </header>
+      <ul class="side-menu-content">
+        <li>
+          <a href="https://www.oaklanddrumschool.com" target="_blank"
+            >About The Oakland Drum School</a
+          >
+        </li>
+        <li id="clips">
+          <a href="https://www.instagram.com/drummasheena/" target="_blank"
+            >Watch My Practice Clips</a
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <div class ="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span></div>
+
+        <div data-key="83" class="key">
+          <kbd>S</kbd>
+          <span class="sound">hi-hat</span></div>
+
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+
+      <audio data-key="65"></audio>
+      <audio data-key="83"></audio>
+      <audio data-key="68"></audio>
+      <audio data-key="70"></audio>
+      <audio data-key="71"></audio>
+      <audio data-key="72"></audio>
+      <audio data-key="74"></audio>
+      <audio data-key="75"></audio>
+      <audio data-key="76"></audio>
+      
+   
+    <script>
+      document
+        .getElementById("menu-trigger")
+        .addEventListener("click", sideMenuAppears);
+      document
+        .getElementById("menu-close")
+        .addEventListener("click", sideMenuDisappears);
+
+      function sideMenuAppears() {
+        document.getElementById("side-menu").classList.add("show-menu");
+        console.log("it works");
+      }
+
+      function sideMenuDisappears() {
+        document.getElementById("side-menu").classList.remove("show-menu");
+      }
+</script>
+
+
+
+     <script> 
+     
+const keys = Array.from( document.querySelectorAll('.key') );
+const sounds = Array.from( document.querySelectorAll('audio') );
+const drumRoot = "https://raw.githubusercontent.com/run-time/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/";
+const drumSounds = {
+  "65": "clap.wav",
+  "83": "hihat.wav",
+  "68": "kick.wav",
+  "70": "openhat.wav",
+  "71": "boom.wav",
+  "72": "ride.wav",
+  "74": "snare.wav",
+  "75": "tom.wav",
+  "76": "tink.wav"
+};
+
+function init() {
+  // set the audio src attributes
+  sounds.forEach( snd => snd.src = drumRoot + drumSounds[snd.getAttribute("data-key")] );
+
+// listen for keyboard events
+window.addEventListener('keydown', onKeyDown);
+
+  // listen for clicks and transition end on keys
+  keys.forEach(key => { 
+    key.addEventListener('transitionend', onTransitionEnd);
+    key.addEventListener('mousedown', onMouseDown);
+  });
+}
+
+// removes the 'playing' class once applied
+function onTransitionEnd(e) {
+if (e.propertyName === 'transform') {
+  e.target.classList.remove('playing');
+}
+}
+
+// plays corresponding sound when key is pressed or area within the div is clicked
+function onMouseDown(e) {
+const key = e.target;
+const audio = document.querySelector('audio[data-key="' + e.target.getAttribute("data-key") + '"]');
+playSound(key,audio);}
+
+function onKeyDown(e) {
+const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+playSound(key,audio);}
+
+
+// rewinds current audio track and and restarts so the key can be played again
+function playSound(key, audio) {
+if (key && audio) {
+key.classList.add('playing');
+audio.currentTime = 0;
+audio.play();
+}
+}
+
+init();
+
+    </script>
+  </body>
+</html>
