@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+   <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    
+    
     <title>Sheena FEWDR Project</title>
-    <link rel="stylesheet" href="">
-  </head>
+      </head>
   <body>
+
     <section class="sticks">
       <div class="left-sticks">
         <div></div>
@@ -96,89 +99,37 @@
       <audio data-key="74"></audio>
       <audio data-key="75"></audio>
       <audio data-key="76"></audio>
-      
-   
-    <script>
-      document
-        .getElementById("menu-trigger")
-        .addEventListener("click", sideMenuAppears);
-      document
-        .getElementById("menu-close")
-        .addEventListener("click", sideMenuDisappears);
-
-      function sideMenuAppears() {
-        document.getElementById("side-menu").classList.add("show-menu");
-        console.log("it works");
-      }
-
-      function sideMenuDisappears() {
-        document.getElementById("side-menu").classList.remove("show-menu");
-      }
-</script>
-
-
-
-     <script> 
      
-const keys = Array.from( document.querySelectorAll('.key') );
-const sounds = Array.from( document.querySelectorAll('audio') );
-const drumRoot = "https://raw.githubusercontent.com/run-time/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/";
-const drumSounds = {
-  "65": "clap.wav",
-  "83": "hihat.wav",
-  "68": "kick.wav",
-  "70": "openhat.wav",
-  "71": "boom.wav",
-  "72": "ride.wav",
-  "74": "snare.wav",
-  "75": "tom.wav",
-  "76": "tink.wav"
-};
+      <section class="notes">
+      
+        <div class="slider">
+    
+          <a href="#slide-1"></a>
+          <a href="#slide-2"></a>
+          <a href="#slide-3"></a>
+          <a href="#slide-4"></a>
+          <a href="#slide-5"></a>
+        
+          <div class="slides">
+            <div id="slide-1">
+              <img src="img/test.jpg" width="250" height="250">
+            </div>
+            <div id="slide-2">
+              2
+            </div>
+            <div id="slide-3">
+              3
+            </div>
+            <div id="slide-4">
+              4
+            </div>
+            <div id="slide-5">
+              5
+            </div>
+          </div>
+        </div>
+      </section>
 
-function init() {
-  // set the audio src attributes
-  sounds.forEach( snd => snd.src = drumRoot + drumSounds[snd.getAttribute("data-key")] );
-
-// listen for keyboard events
-window.addEventListener('keydown', onKeyDown);
-
-  // listen for clicks and transition end on keys
-  keys.forEach(key => { 
-    key.addEventListener('transitionend', onTransitionEnd);
-    key.addEventListener('mousedown', onMouseDown);
-  });
-}
-
-// removes the 'playing' class once applied
-function onTransitionEnd(e) {
-if (e.propertyName === 'transform') {
-  e.target.classList.remove('playing');
-}
-}
-
-// plays corresponding sound when key is pressed or area within the div is clicked
-function onMouseDown(e) {
-const key = e.target;
-const audio = document.querySelector('audio[data-key="' + e.target.getAttribute("data-key") + '"]');
-playSound(key,audio);}
-
-function onKeyDown(e) {
-const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-playSound(key,audio);}
-
-
-// rewinds current audio track and and restarts so the key can be played again
-function playSound(key, audio) {
-if (key && audio) {
-key.classList.add('playing');
-audio.currentTime = 0;
-audio.play();
-}
-}
-
-init();
-
-    </script>
-  </body>
+      <script src="js/script.js"></script>
+     </body>
 </html>

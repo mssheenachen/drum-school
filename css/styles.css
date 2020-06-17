@@ -158,90 +158,56 @@ kbd {
   user-select: none;
 }
 
-/* .drumkit {
-  border: 5px solid blue;
-  height: 400px;
+.notes {
   display: flex;
-  justify-content: space-between;
+  height: 100%;
+  position: absolute;
+  margin-top: 285px;
+  margin-left: 225px;
+}
+
+.slider {
+  width: 300px;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: #ef42f5;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  margin-right: 50px;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  font-size: 100px;
 }
-
-.snare {
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-}
-
-.hi-hat {
-  border: 2px solid black;
-  background-color: yellow;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  text-align: center;
-}
-
-.crash-cymbal1 {
-  border: 2px solid black;
-  background-color: yellow;
-  border-radius: 50%;
-  width: 125px;
-  height: 125px;
-  text-align: center;
-}
-
-.high-tom {
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  text-align: center;
-}
-
-.mid-tom {
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 50%;
-  width: 85px;
-  height: 85px;
-  text-align: center;
-}
-
-.floor-tom {
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 50%;
-  width: 105px;
-  height: 105px;
-  text-align: center;
-}
-
-.ride-cymbal {
-  border: 2px solid black;
-  background-color: yellow;
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
-  text-align: center;
-}
-
-.crash-cymbal2 {
-  border: 2px solid black;
-  background-color: yellow;
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
-  text-align: center;
-}
-
-.bass-drum {
-  border: 2px solid black;
-  background-color: purple;
-  width: 200px;
-  height: 100px;
-  text-align: center;
-} */
