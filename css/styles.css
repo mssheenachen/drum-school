@@ -169,11 +169,14 @@ kbd {
 .notes {
   display: flex;
   height: 100%;
+
+  /* I wanted the slideshow of notes to be near the bottom right of the page */
   position: absolute;
   margin-top: 285px;
   margin-left: 225px;
 }
 
+/* overflow property ensures scrolling mechanism shows up for overflowing boxes */
 .slider {
   width: 525px;
   text-align: center;
@@ -184,8 +187,6 @@ kbd {
 .slides {
   display: flex;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
