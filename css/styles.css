@@ -103,7 +103,6 @@ a:visited {
   color: black;
 }
 
-/* I only wanted the menu to fly out a little, not all the way across the page */
 .show-menu {
   opacity: 1;
   transform: translateX(750px);
@@ -173,7 +172,7 @@ kbd {
   /* I wanted the slideshow of notes to be near the bottom right of the page */
   position: absolute;
   margin-top: 285px;
-  margin-left: 225px;
+  margin-left: 250px;
 }
 
 /* overflow property ensures scrolling mechanism shows up for overflowing boxes */
