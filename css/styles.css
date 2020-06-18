@@ -103,6 +103,9 @@ a:visited {
   color: black;
 }
 
+a:hover {
+  color: purple;
+}
 .show-menu {
   opacity: 1;
   transform: translateX(750px);

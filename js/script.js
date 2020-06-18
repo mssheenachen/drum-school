@@ -53,7 +53,7 @@ function onTransitionEnd(e) {
   }
 }
 
-// plays corresponding sound when key is pressed or area within the div is clicked
+// plays corresponding sound when area within the key div is clicked
 function onMouseDown(e) {
   const key = e.target;
   const audio = document.querySelector(
@@ -61,6 +61,8 @@ function onMouseDown(e) {
   );
   playSound(key, audio);
 }
+
+// plays corresponding sound when key is pressed
 
 function onKeyDown(e) {
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
